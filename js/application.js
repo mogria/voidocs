@@ -10,6 +10,10 @@ $(function() {
 
 
   var DocumentView = Spine.Controller.sub({
+    el: $("section"),
+    events: {
+      "click .save-document": "saveDoc"
+    },
     init: function() {
       this.item.bind("update", this.proxy(this.render));
       this.item.bind("destroy", this.proxy(this.remove));
@@ -18,9 +22,14 @@ $(function() {
       return $("#documentTemplate").tmpl(items);
     },
     render: function() {
-      $("section").html(this.template(this.item));
+      this.el.html(this.template(this.item));
       return this;
     },
+    saveDoc: function() {
+      console.log("first void");
+      this.item.content = $(".document-content").val();
+      this.item.save();
+    }
   });
 
   var DocumentListView = Spine.Controller.sub({
@@ -47,7 +56,6 @@ $(function() {
       Spine.Route.navigate("/document", this.item.id);
     },
     deleteDoc: function(e) {
-      console.log("deletEdoc");
       this.item.destroy();
     }
   });
@@ -92,7 +100,7 @@ $(function() {
         },
         "/document/:id": function(params) {
           var doc = Document.find(params.id)
-          new DocumentView({item: doc}).render();
+          new DocumentView({item: doc}).render().remove();
         }
       });
     },
