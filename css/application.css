@@ -1,0 +1,11 @@
+body {
+  background-color: #eeeeee;
+}
+
+header {
+  border-bottom: 1px solid black;
+}
+
+aside {
+  border-left: 1px solid black;
+}

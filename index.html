@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta encoding="utf-8" />
+    <title>VoidDocs</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.tmpl.js"></script>
+    <script src="js/spine.js"></script>
+    <script src="js/local.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/application.js"></script>
+    <link href="css/application.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      VoiDocs
+    </header>
+    <aside>
+      <input type="text" class="file-name" />
+      <button class="add-file">Add File</button>
+    </aside>
+    <section>
+    </section>
+
+    <script type="text/template" id="documentListTemplate">
+      <a class="open-document">${name}</a>
+    </script>
+
+    <script type="text/template" id="documentTemplate">
+      <h1>${name}</h1>
+      <textarea>${content}</textarea>
+    </script>
+  </body>
+</html>
