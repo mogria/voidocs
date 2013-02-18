@@ -7,5 +7,17 @@ header {
 }
 
 aside {
-  border-left: 1px solid black;
+  border-right: 1px solid black;
+  width: 300px;
+  float: left;
+}
+
+section {
+  padding-left: 20px;
+  overflow: auto;
+}
+
+section textarea {
+  width: 600px;
+  height: 400px;
 }
