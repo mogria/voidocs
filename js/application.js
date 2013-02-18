@@ -26,7 +26,8 @@ $(function() {
   var DocumentListView = Spine.Controller.sub({
     tag: "li",
     events: {
-      "click .open-document": "open"
+      "click .open-document": "open",
+      "click .delete-file": "deleteDoc"
     },
     init: function() {
       this.item.bind("update", this.proxy(this.render));
@@ -44,6 +45,10 @@ $(function() {
     },
     open: function(e) {
       Spine.Route.navigate("/document", this.item.id);
+    },
+    deleteDoc: function(e) {
+      console.log("deletEdoc");
+      this.item.destroy();
     }
   });
 
@@ -81,9 +86,7 @@ $(function() {
   var App = Spine.Controller.sub({
     el: $("body"),
     init: function() {
-      this.file_list = new FileList(); /*{
-        el: $("aside")
-      });*/
+      this.file_list = new FileList();
       this.routes({
         "/": function(){
         },

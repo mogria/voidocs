@@ -21,3 +21,7 @@ section textarea {
   width: 600px;
   height: 400px;
 }
+
+.delete-file {
+  color: red;
+}
